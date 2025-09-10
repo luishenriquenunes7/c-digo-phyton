@@ -23,24 +23,24 @@ def criar_publicacao():
     nova_publicacao = Publicacao(conteudo, descricao, autor, data_hora)
     lista_publicacoes.append(nova_publicacao)
     print ("Publicação criada com sucesso!")
-#criando uma função para a classe "Publicacao",esta função serve para curtir a publicação,(if not:usado para verificar a ausêNCIA de um valor ou de uma situação).
+#criando uma função para a classe "Publicacao",esta função serve para curtir a publicação,(if not:usado para verificar a ausência de um valor ou de uma situação).
 def curtir_publicacao():
     print("\n=== CURTIR PUBLICAÇÃO ===")
     if not lista_publicacoes:
         print("Nenhuma publicação disponível.")
         return
-    
+#mostra todas as publicações disponíveis
     visualizar_feed()
     try:
         indice = int(input("Digite o número da publicação para curtir: ")) -1
-        if 0 <= indice < len(lista_publicacao):
+        if 0 <= indice < len(lista_publicacoes):
             lista_publicacoes[indice].curtidas += 1
             print("Publicação curtida!")
         else:
             print("Publicação não encontrada.")
     except ValueError:
         print("Número inválido.")
-        
+#função para exibir todas as publicações em ordem
 def visualizar_feed():
     print("\n=== FEED ===")
     if not lista_publicacoes:
@@ -52,7 +52,7 @@ def visualizar_feed():
         print(f" {pub.conteudo[:50]}...")
         print(f" {pub.data_hora.strftime('%d/%m/%Y %H:%M')}")
         print("-" * 40)
-        
+ #função para visualizar uma publicação completa (individual)       
 def visualizar_publicacao_individual():
     print("\n=== VISUALIZAR PUBLICAÇÃO ===")
     if not lista_publicacoes:
@@ -73,7 +73,7 @@ def visualizar_publicacao_individual():
             print("Publicação não encontrada.")
     except ValueError:
         print("Número inválido.")
-    
+ #função para visualizar uma publicações de um autor específico  
 def visualizar_publicacoes_por_autor():
     print("\n=== PUBLICAÇÕES POR AUTOR ===")
     if not lista_publicacoes:
@@ -92,7 +92,7 @@ def visualizar_publicacoes_por_autor():
         print(f"- {pub.conteudo[:50]}...({pub.curtidas} curtidas)")
         print(f"  {pub.data_hora.strftime('%d/%m/%Y %H:%M')}")
         print("-" * 30)
-        
+ #função principal (menu do sistema)      
 def menu():
     while True:
         print("\n=== REDE SOCIAL ===")
