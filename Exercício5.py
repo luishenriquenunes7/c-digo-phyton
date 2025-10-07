@@ -90,7 +90,7 @@ while True:
         
     if opcao == "1":
         nome = input("Nome do cliente: ")
-        contato = input("Inserir contato: ")
+       celular = input("Inserir contato: ")
         email = input("Digite seu email: ")
         cliente = Cliente(nome,contato,email)
         lista_pessoas.append(cliente)
@@ -150,3 +150,4 @@ while True:
         print("Obrigado pela atenção!")
         
     break
+
